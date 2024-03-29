@@ -1,4 +1,4 @@
-#Project Overview
+# Project Overview
 
 Given the new demands for digitization of the Unified Health System (SUS) described in the National Health Information and Informatics Policy (PNIIS), the need to create software for the creation and management of electronic medical records in establishments that are portals became clear. entry to health care. In this regard, the two main health establishments considered the gateway to care in the SUS are the Basic Health Units (UBS) and the Emergency Care Units (UPA)(BRASIL,2021)(BRASIL,2014).
 
