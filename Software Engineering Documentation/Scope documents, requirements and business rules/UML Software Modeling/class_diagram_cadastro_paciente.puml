@@ -1,4 +1,4 @@
-@startuml Diagrama de Classe Sistema Geral
+@startuml Diagrama de Classe Cadastro Paciente
 
 class "Login"
 {
@@ -199,6 +199,12 @@ entity "Prontuario"
     +class Cadastro_Paciente_Classificacao_Risco
     #class Cadastro_Paciente_id_num
     -class Termo_consentimento
+
+    +void cadastro_paciente();
+    +void evolução_prontuario();
+    +void finalizar_prontuario();
+    +void busca_prontuario();
+    +void fila_atendimento();
     
 }
 

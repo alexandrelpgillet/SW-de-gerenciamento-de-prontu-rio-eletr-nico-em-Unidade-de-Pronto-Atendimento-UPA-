@@ -1,4 +1,4 @@
-@startuml Diagrama de Classe Evolução Prontuario
+@startuml Diagrama de Classe Finalização do Prontuário
 
 class "Login"
 {
@@ -58,13 +58,12 @@ interface "Menu"
 }
 
 
-class "Evolução_prontuario"
+class Encerrar_prontuario
 {
-    +void evolução_prontuario();
+    +void finalizar_prontuario();
 } 
 
-
-entity "Prontuario"
+entity Prontuario
 {
     #entity Cadastro_Paciente_Identificação
     +entity Cadastro_Paciente_Uso_Substancias_Procedimentos
@@ -72,22 +71,25 @@ entity "Prontuario"
     +class Cadastro_Paciente_Classificacao_Risco
     #class Cadastro_Paciente_id_num
     -class Termo_consentimento
-    
-    
-    
+
     +void cadastro_paciente();
     +void evolução_prontuario();
     +void finalizar_prontuario();
     +void busca_prontuario();
     +void fila_atendimento();
+
     
 }
+
+
+
+
 
 Login -down..>Autenticacao
 Autenticacao -right..>Usuario
 Autenticacao -down..|>Menu
-Menu -right..|>Evolução_prontuario 
-Evolução_prontuario -right..|>Prontuario
+Menu -right..|>Encerrar_prontuario
+Encerrar_prontuario -right..>Prontuario
 
 
 
