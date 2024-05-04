@@ -1,0 +1,116 @@
+@startuml Diagrama de Classe do Sistema
+
+
+
+ entity  "Usuario"
+ {  
+   
+
+    +string nome; 
+
+    +string nome_da_mãe;
+    
+    +char sexo;
+    
+    +string gênero;
+    
+    +int data_nascimento_dia;
+    
+    +int data_nascimento_mes;
+    
+    +int data_nascimento_ano;
+    
+    +string raça_cor;
+   
+    +string nacionalidade;
+   
+    +string municipio_nascimento;
+   
+    +string uf;
+   
+    +string país_nascimento;
+   
+    +int ano_naturalização;
+   
+    +int numero_passaporte;
+   
+    +string email;
+    
+    +char[16] telefone;
+    
+    +string endereço;
+    
+    +char[16] CPF;
+    
+    +int num_RG;
+    
+    +char[2] uf_RG;
+    
+    +string emissor_RG;
+    
+    +int data_emissao_dia;
+    
+    +int data_emissao_mes;
+    
+    +int data_emissao_ano;
+    
+    +char[15] numero_cartao_sus;
+    
+    +string conselho_profissional;
+    
+    +string registro_conselho_profissional;
+    
+    +string classificacao_ocupação;
+    
+    +string senha_cadastro;
+
+    -void cadastro();
+    -void excluir();
+    +void login();
+    
+
+
+    
+
+
+ }
+
+class "Login"
+{
+    +char[16] CPF;
+    +string senha;
+    +void entry_login();
+
+}
+
+class "Autenticacao"
+{
+    -boolean autenticacao();
+
+}
+
+interface "Menu"
+{
+    +void cadastro_paciente();
+
+    +void evolução_prontuario();
+
+    +void finalizar_prontuario();
+
+    +void busca_prontuario();
+
+    +void fila_atendimento();
+
+    -boolena autenticacao();
+
+}
+
+
+Login..>Autenticacao
+
+Autenticacao -left..> Usuario
+Autenticacao ..|> Menu
+
+
+
+@enduml
