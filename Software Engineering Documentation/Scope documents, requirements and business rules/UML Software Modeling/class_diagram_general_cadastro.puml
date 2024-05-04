@@ -1,0 +1,218 @@
+@startuml Diagrama de Classe Sistema Geral
+
+class "Login"
+{
+    +char[16] CPF_login;
+
+    +string senha_login;
+
+    +void entry_login();
+
+}
+
+class "Autenticacao"
+{
+    -boolean autenticacao();
+
+}
+
+entity "Usuario"
+{
+    +char[16] CPF;
+    
+    +string senha_cadastro;
+
+    -void cadastro_usuario();
+    
+    -void excluir_usuario();
+
+    -void editar_usuario();
+    
+    +void login_usuario(); 
+}
+
+interface "Menu"
+{
+    +string label_cadastro_paciente;
+
+    +string label_evolução_prontuario;
+    
+    +string label_finalizar_prontuario;
+    
+    +string label_busca_prontuario;
+    
+    +string label_fila_de_atendimento;
+
+    +void cadastro_paciente();
+    
+    +void evolução_prontuario();
+    
+    +void finalizar_prontuario();
+    
+    +void busca_prontuario();
+    
+    +void fila_atendimento();
+    
+    -boolean autenticacao();
+
+}
+
+class "Cadastro_Paciente"
+{   
+    
+    +void cadastro_paciente();
+}
+
+entity "Cadastro_Paciente_Identificação"
+{
+
+    +string nome_paciente;
+
+    +string nome_social_paciente;
+    
+    +string nome_mae_paciente;
+    
+    +char sexo_paciente;
+    
+    +string genero_paciente;
+    
+    +int data_nascimento_dia_paciente;
+    
+    +int data_nascimento_mes_paciente;
+    
+    +int data_nascimento_ano_paciente;
+    
+    +string raça_paciente;
+    
+    +string nacionalidade_paciente;
+    
+    +string municipio_nascimento_paciente;
+    
+    +string pais_nascimento_paciente_estrangeiro;
+    
+    +int numero_passaporte_paciente;
+    
+    +string pais_passaporte_paciente;
+    
+    +string tipo_telefone_paciente;
+    
+    +char[16] telefone_paciente;
+    
+    +string endereço_paciente;
+    
+    +char[16] CPF_paciente;
+    
+    +int num_rg_paciente;
+    
+    +char[2] UF_rg_paciente;
+    
+    +string orgao_expedidor_rg_paciente;
+    
+    +int data_emissao_dia_rg_paciente;
+    
+    +int data_emissao_mes_rg_paciente;
+    
+    +int data_emissao_ano_rg_paciente;
+    
+    +char[15] num_cartao_sus_paciente;
+    
+    +string nome_representante_legal_paciente;
+    
+    +string grau_relacionamento_representante_legal_paciente;
+    
+    +string parentesco;
+    
+    +char[16] CPF_representante_legal_paciente;
+
+    +void cadastro_paciente();
+
+
+
+
+}
+
+entity "Cadastro_Paciente_Uso_Substancias_Procedimentos"
+{
+
+    +string uso_medicações_paciente;
+
+    +string uso_substancias_paciente;
+    
+    +string procedimento_paciente;
+
+    +void cadastro_paciente();
+
+}
+
+entity "Cadastro_Paciente_Anamnese"
+{
+    +string queixa_principal_paciente;
+
+    +string historia_doenca_atual_paciente;
+
+    +string sintomas_gerais_paciente;
+
+    +string alergias_intolerancias_previas_paciente;
+
+    +string sinais_vitais_paciente;
+
+    +string exame_fisico_paciente;
+
+    +string hipotese_diagnostica_paciente;
+
+    +string plano_terapeutico_paciente;
+
+    +void cadastro_paciente();
+}
+
+entity "Cadastro_Paciente_Classificacao_Risco"
+{
+    +string entry_risco_paciente;
+    +void cadastro_paciente();
+}
+
+class "Termo_consentimento"
+{
+    +string termo_consentimento_paciente;
+    +cadastro_paciente();
+
+}
+
+class "Cadastro_Paciente_id_num"
+{
+    +int id_num_generator( char CPF_paciente[16], int data_nascimento_ano_paciente , int data_nascimento_mes_paciente ,  int data_nascimento_dia_paciente);
+}
+
+entity "Pulseira_Identificacao"
+{
+   
+   +void impressao(string nome_paciente , int data_nascimento_ano_paciente , int data_nascimento_mes_paciente , int data_nascimento_dia_paciente , string entry_risco_paciente , int id_num_generator());
+
+}
+Login ..>Autenticacao
+
+Autenticacao -left..>Usuario
+
+Autenticacao -down..|> Menu
+
+Menu -right..|>Cadastro_Paciente
+
+Cadastro_Paciente -right..|>Cadastro_Paciente_Identificação
+
+Cadastro_Paciente_Identificação -right..|>Cadastro_Paciente_Uso_Substancias_Procedimentos
+
+Cadastro_Paciente_Uso_Substancias_Procedimentos -right..|>Cadastro_Paciente_Anamnese
+
+Cadastro_Paciente_Anamnese -up..|>Cadastro_Paciente_Classificacao_Risco
+
+Cadastro_Paciente_Classificacao_Risco -up..|>Termo_consentimento
+
+Termo_consentimento -right..|>Cadastro_Paciente_id_num
+
+Cadastro_Paciente_id_num ..|>Pulseira_Identificacao
+
+
+
+
+
+@enduml
