@@ -1,0 +1,86 @@
+@startuml Diagrama de Classe Evolução Prontuario
+
+class "Login"
+{
+    +char[16] CPF_login;
+
+    +string senha_login;
+
+    +void entry_login();
+
+}
+
+class "Autenticacao"
+{
+    -boolean autenticacao();
+
+}
+
+entity "Usuario"
+{
+    +char[16] CPF;
+    
+    +string senha_cadastro;
+
+    -void cadastro_usuario();
+    
+    -void excluir_usuario();
+
+    -void editar_usuario();
+    
+    +void login_usuario(); 
+}
+
+interface "Menu"
+{
+    +string label_cadastro_paciente;
+
+    +string label_evolução_prontuario;
+    
+    +string label_finalizar_prontuario;
+    
+    +string label_busca_prontuario;
+    
+    +string label_fila_de_atendimento;
+
+    +void cadastro_paciente();
+    
+    +void evolução_prontuario();
+    
+    +void finalizar_prontuario();
+    
+    +void busca_prontuario();
+    
+    +void fila_atendimento();
+    
+    -boolean autenticacao();
+
+}
+
+
+class "Evolução_prontuario"
+{
+    +void evolução_prontuario();
+} 
+
+
+entity "Prontuario"
+{
+    #entity Cadastro_Paciente_Identificação
+    +entity Cadastro_Paciente_Uso_Substancias_Procedimentos
+    +entity Cadastro_Paciente_Anamnese
+    +class Cadastro_Paciente_Classificacao_Risco
+    #class Cadastro_Paciente_id_num
+    -class Termo_consentimento
+    
+}
+
+Login -down..>Autenticacao
+Autenticacao -right..>Usuario
+Autenticacao -down..|>Menu
+Menu -right..|>Evolução_prontuario 
+Evolução_prontuario -right..|>Prontuario
+
+
+
+@enduml

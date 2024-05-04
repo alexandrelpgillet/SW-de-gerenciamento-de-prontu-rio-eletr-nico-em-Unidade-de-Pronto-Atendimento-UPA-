@@ -189,6 +189,19 @@ entity "Pulseira_Identificacao"
    +void impressao(string nome_paciente , int data_nascimento_ano_paciente , int data_nascimento_mes_paciente , int data_nascimento_dia_paciente , string entry_risco_paciente , int id_num_generator());
 
 }
+
+
+entity "Prontuario"
+{
+    #entity Cadastro_Paciente_Identificação
+    +entity Cadastro_Paciente_Uso_Substancias_Procedimentos
+    +entity Cadastro_Paciente_Anamnese
+    +class Cadastro_Paciente_Classificacao_Risco
+    #class Cadastro_Paciente_id_num
+    -class Termo_consentimento
+    
+}
+
 Login ..>Autenticacao
 
 Autenticacao -left..>Usuario
@@ -209,7 +222,11 @@ Cadastro_Paciente_Classificacao_Risco -up..|>Termo_consentimento
 
 Termo_consentimento -right..|>Cadastro_Paciente_id_num
 
+Cadastro_Paciente_id_num -right..|>Prontuario
+
 Cadastro_Paciente_id_num ..|>Pulseira_Identificacao
+
+
 
 
 
