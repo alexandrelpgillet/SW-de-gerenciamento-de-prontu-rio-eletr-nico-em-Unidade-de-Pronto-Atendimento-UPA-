@@ -1,0 +1,119 @@
+@startuml Diagrama de classe cadastro
+
+class "Login_admin"
+{
+    +string login_admin;
+
+    +string  senha_admin;
+
+    -boolean autenticar_admin(login_admin , senha_admin);
+}
+
+class "Autenticação_admin"
+{
+    -boolean autenticar_admin(login_admin, senha_admin);
+}
+
+class "Cadastrar_Usuario"
+{
+    -void cadastro_usuario();
+
+}
+
+class "Excluir_Usuario"
+{
+     -void excluir_usuario();
+}
+
+class "Editar_Usuario"
+{
+    -void editar_usuario();
+
+}
+
+class "Visualizar_Usuario"
+{
+    -void visualizar_usuario();
+}
+
+entity "Usuario"
+{
+    +string nome; 
+
+    +string nome_da_mãe;
+    
+    +char sexo;
+    
+    +string gênero;
+    
+    +int data_nascimento_dia;
+    
+    +int data_nascimento_mes;
+    
+    +int data_nascimento_ano;
+    
+    +string raça_cor;
+   
+    +string nacionalidade;
+   
+    +string municipio_nascimento;
+   
+    +string uf;
+   
+    +string país_nascimento;
+   
+    +int ano_naturalização;
+   
+    +int numero_passaporte;
+   
+    +string email;
+    
+    +char[16] telefone;
+    
+    +string endereço;
+    
+    +char[16] CPF;
+    
+    +int num_RG;
+    
+    +char[2] uf_RG;
+    
+    +string emissor_RG;
+    
+    +int data_emissao_dia;
+    
+    +int data_emissao_mes;
+    
+    +int data_emissao_ano;
+    
+    +char[15] numero_cartao_sus;
+    
+    +string conselho_profissional;
+    
+    +string registro_conselho_profissional;
+    
+    +string classificacao_ocupação;
+    
+    +string senha_cadastro;
+
+    -void cadastro_usuario();
+    -void excluir_usuario();
+    -void editar_usuario();
+    -void visualizar_usuario();
+
+}
+
+
+Login_admin ..>Autenticação_admin
+Autenticação_admin  ..|>Cadastrar_Usuario
+Autenticação_admin ..|>Editar_Usuario
+Autenticação_admin ..|> Excluir_Usuario
+Autenticação_admin ..|> Visualizar_Usuario
+
+
+Cadastrar_Usuario ..> Usuario
+Excluir_Usuario..>Usuario
+Editar_Usuario..>Usuario
+Visualizar_Usuario..>Usuario
+
+@enduml
