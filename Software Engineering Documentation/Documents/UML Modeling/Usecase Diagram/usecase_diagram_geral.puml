@@ -1,6 +1,8 @@
 @startuml Diagrama de caso de uso Geral
 
-:User:
+
+
+"User" as User
 User-->(Login)
 
 
