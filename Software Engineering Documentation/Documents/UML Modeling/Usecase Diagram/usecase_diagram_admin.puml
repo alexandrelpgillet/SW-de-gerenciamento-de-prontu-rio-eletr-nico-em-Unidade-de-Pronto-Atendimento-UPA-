@@ -7,13 +7,18 @@ skinparam actorStyle awesome
 
 Admin -right-- (Realizar\nLogin)
 
-(Realizar\nLogin)-right..>(Autenticação) : <<include>>
+(Realizar\nLogin)-right..>(Autenticação\n--\nextend points\n\nCadastrar\nExcluir\nEditar\nVisualizar\nControle) :: <<include>>
 
-(Autenticação)..>(Cadastrar Profissional) : <<include>>
-(Autenticação)..>(Excluir Profissional) : <<include>>
-(Autenticação)..>(Editar Profissional) : <<include>>
-(Autenticação)..>(Visualizar Profissional) : <<include>>
-(Autenticação)..>(Controle Banco de dados) : <<include>>
+(Autenticação\n--\nextend points\n\nCadastrar\nExcluir\nEditar\nVisualizar\nControle)<.. (Cadastrar Profissional) :: <<extend>>
+
+(Autenticação\n--\nextend points\n\nCadastrar\nExcluir\nEditar\nVisualizar\nControle)<.. (Excluir Profissional)  :: <<extend>>
+
+
+(Autenticação\n--\nextend points\n\nCadastrar\nExcluir\nEditar\nVisualizar\nControle)<.. (Editar Profissional) :: <<extend>>
+
+(Autenticação\n--\nextend points\n\nCadastrar\nExcluir\nEditar\nVisualizar\nControle)<.. (Visualizar Profissional) :: <<extend>>
+
+(Autenticação\n--\nextend points\n\nCadastrar\nExcluir\nEditar\nVisualizar\nControle)<.. (Controle Banco de dados) :: <<extend>>
 
 
 @endluml

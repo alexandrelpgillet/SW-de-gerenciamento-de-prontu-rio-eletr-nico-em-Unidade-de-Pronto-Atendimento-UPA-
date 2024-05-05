@@ -7,21 +7,21 @@ User-->(Login)
 
 
 
-(Login)..>(Autenticação)
+(Login)..>(Autenticação) ::<<include>>
 
 (Autenticação)..>(Acesso Menu\n--\nextension points\nVisualizar\nCriar\nEditar)::<<include>>
 
-(Acesso Menu\n--\nextension points\nVisualizar\nCriar\nEditar) -down..>(Criar Prontuário) ::<<extend>>
+(Acesso Menu\n--\nextension points\nVisualizar\nCriar\nEditar) <..-down(Criar Prontuário) ::<<extend>>
 
 
 
 (Criar Prontuário)..>(Cadastro Paciente\nIdentificação) ::<<include>>
 
-(Acesso Menu\n--\nextension points\nVisualizar\nCriar\nEditar) -right..>(Editar Prontuário) ::<<extend>>
+(Acesso Menu\n--\nextension points\nVisualizar\nCriar\nEditar) <..-right(Editar Prontuário) ::<<extend>>
 
 (Editar Prontuário)-right..>(Editar\nDados de Identificação) :: <<include>>
 
-(Acesso Menu\n--\nextension points\nVisualizar\nCriar\nEditar) -left..>(Visualizar\nFila de atendimentos) ::<<extend>>
+(Acesso Menu\n--\nextension points\nVisualizar\nCriar\nEditar) <..-left(Visualizar\nFila de atendimentos) ::<<extend>>
 
 
 

@@ -14,12 +14,12 @@ User-->(Login)
 (Autenticação)..>(Acesso Menu\n--\nextension points\n\nCriar prontuário \n Editar prontuário \n Encerrar prontuário \n Acessar fila de atendimento) ::<<include>>
 
 
-(Acesso Menu\n--\nextension points\n\nCriar prontuário \n Editar prontuário \n Encerrar prontuário \n Acessar fila de atendimento) ..>(Criar novo prontuário) ::<<extend>>
+(Acesso Menu\n--\nextension points\n\nCriar prontuário \n Editar prontuário \n Encerrar prontuário \n Acessar fila de atendimento) <..(Criar novo prontuário) ::<<extend>>
 
-(Acesso Menu\n--\nextension points\n\nCriar prontuário \n Editar prontuário \n Encerrar prontuário \n Acessar fila de atendimento)  ..>(Editar prontuário existente) ::<<extend>>
+(Acesso Menu\n--\nextension points\n\nCriar prontuário \n Editar prontuário \n Encerrar prontuário \n Acessar fila de atendimento)  <..(Editar prontuário existente) ::<<extend>>
 
-(Acesso Menu\n--\nextension points\n\nCriar prontuário \n Editar prontuário \n Encerrar prontuário \n Acessar fila de atendimento) ..>(Encerrar prontuário existete) ::<<extend>>
+(Acesso Menu\n--\nextension points\n\nCriar prontuário \n Editar prontuário \n Encerrar prontuário \n Acessar fila de atendimento) <..(Encerrar prontuário existete) ::<<extend>>
 
 
-(Acesso Menu\n--\nextension points\n\nCriar prontuário \n Editar prontuário \n Encerrar prontuário \n Acessar fila de atendimento)  ..>(Acessar fila de atendimento) :: <<extend>>
+(Acesso Menu\n--\nextension points\n\nCriar prontuário \n Editar prontuário \n Encerrar prontuário \n Acessar fila de atendimento)  <..(Acessar fila de atendimento) :: <<extend>>
 @endluml
