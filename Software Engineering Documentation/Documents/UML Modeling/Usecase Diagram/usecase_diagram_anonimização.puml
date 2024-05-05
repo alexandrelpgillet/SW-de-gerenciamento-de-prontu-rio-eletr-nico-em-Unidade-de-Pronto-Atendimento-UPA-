@@ -1,0 +1,23 @@
+@startuml Diagrama de casos de uso anonimização dos prontuários
+
+left to right direction
+
+skinparam packageStyle rectangle
+
+actor Admin
+actor Secretária_Municipal_de_Saúde
+
+rectangle Anonimização {
+    Admin -- (Anonimização)
+
+    (Anonimização) .> (Anonimizar Prontuário) : <<include>>
+
+    (Anonimizar Prontuário) .>(Agrupar dados anonimizados) ::<<include>>
+    
+    (Agrupar dados anonimizados) .>(Anonimização): <<include>>
+
+    (Anonimização) -- Secretária_Municipal_de_Saúde
+
+}
+
+@enduml
