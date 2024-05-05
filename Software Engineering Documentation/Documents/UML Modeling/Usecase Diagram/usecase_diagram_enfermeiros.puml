@@ -1,0 +1,53 @@
+@startuml Diagrama caso de uso enfermeiros
+
+
+"Enfermeiros" as User
+
+User-->(Login)
+
+(Login)..>(Autenticação) ::<<include>>
+
+(Autenticação)..>(Acesso Menu\n--\nextension point\nCriar Prontuário\nEditar Prontuário\nVisualizar Prontuário\nEncerrar Prontuário\nAcessar fila de atendimento) ::<<include>>
+
+
+(Criar Prontuário)-left..>(Acesso Menu\n--\nextension point\nCriar Prontuário\nEditar Prontuário\nVisualizar Prontuário\nEncerrar Prontuário\nAcessar fila de atendimento) ::<<extend>>
+ 
+
+(Cadastro\nUso de medicações\nExames e Procecimentos)<..(Criar Prontuário) ::<<include>>
+
+(Cadastro\nAnamnese)<..(Criar Prontuário) ::<<include>>
+
+(Registro Queixa Principal)<..(Cadastro\nAnamnese) ::<<include>>
+
+(Registro História da Doença Atual)<..(Cadastro\nAnamnese) ::<<include>>
+
+(Registro Sinais Vitais)<..(Cadastro\nAnamnese) ::<<include>>
+
+
+
+
+
+
+(Editar Prontuário)-up..>(Acesso Menu\n--\nextension point\nCriar Prontuário\nEditar Prontuário\nVisualizar Prontuário\nEncerrar Prontuário\nAcessar fila de atendimento) ::<<extend>>
+
+(Editar Queixa Principal) -up--|> (Editar Prontuário)
+
+(Editar História da Doença Atual) -up--|>(Editar Prontuário)
+
+(Editar Sinais Vitais) -up--|> (Editar Prontuário)
+
+(Editar Medicações, Exames e Procedimentos) -up--|>(Editar Prontuário)
+
+(Modificar fila)..>(Acessar fila de atendimento\n--\nextension point\nModificar fila) ::<<extend>>
+
+(Visualizar Prontuário)-right..>(Acesso Menu\n--\nextension point\nCriar Prontuário\nEditar Prontuário\nVisualizar Prontuário\nEncerrar Prontuário\nAcessar fila de atendimento) :: <<extend>>
+
+(Acessar fila de atendimento\n--\nextension point\nModificar fila) ..>(Acesso Menu\n--\nextension point\nCriar Prontuário\nEditar Prontuário\nVisualizar Prontuário\nEncerrar Prontuário\nAcessar fila de atendimento) :: <<extend>>
+
+
+(Encerrar Prontuário)-up..>(Acesso Menu\n--\nextension point\nCriar Prontuário\nEditar Prontuário\nVisualizar Prontuário\nEncerrar Prontuário\nAcessar fila de atendimento) ::<<extend>>
+
+
+
+
+@enduml
