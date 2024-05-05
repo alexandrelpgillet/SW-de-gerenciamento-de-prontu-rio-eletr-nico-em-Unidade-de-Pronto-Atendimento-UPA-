@@ -1,0 +1,20 @@
+@startuml Digrama caso de uso técnicos de enfermagem
+
+"Técnicos de enfermagem" as User
+
+User--> (Login)
+
+(Login)..>(Autenticação)  ::<<include>>
+
+(Autenticação)..>(Acesso ao menu\n--\nextension points\n\nVisualizar/editar fila\nAcessar prontuário) ::<<include>>
+
+(Acesso ao menu\n--\nextension points\n\nVisualizar/editar fila\nAcessar prontuário)<....-right(Visualizar/editar\nFila de atendimento) ::<<extend>>
+
+(Acesso ao menu\n--\nextension points\n\nVisualizar/editar fila\nAcessar prontuário)<..(Acessar prontuário\n--\nextension points\n\nVisualizar\nEditar/Preencher)::<<extend>>
+
+(Acessar prontuário\n--\nextension points\n\nVisualizar\nEditar/Preencher)<..(Visualizar) ::<<extend>>
+(Acessar prontuário\n--\nextension points\n\nVisualizar\nEditar/Preencher)<..(Editar/Preencher\nUso de susbstâncias\nExames e Procedimentos anteriores) ::<<extend>>
+(Acessar prontuário\n--\nextension points\n\nVisualizar\nEditar/Preencher)<..(Editar/Preencher estratificação de risco) ::<<extend>>
+
+(Acessar prontuário\n--\nextension points\n\nVisualizar\nEditar/Preencher)<..(Editar/Preencher\nSinais Vitais) ::<<extend>>
+@enduml
