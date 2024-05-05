@@ -1,0 +1,99 @@
+@startuml Diagrama caso de uso enfermeiros
+
+
+"Médicos" as User
+
+User-->(Login)
+
+(Login)..>(Autenticação) ::<<include>>
+
+(Autenticação)..>(Acesso Menu\n--\nextension point\nCriar Prontuário\nEditar Prontuário\nVisualizar Prontuário\nEncerrar Prontuário\nAcessar fila de atendimento) ::<<include>>
+
+
+(Criar Prontuário)-left..>(Acesso Menu\n--\nextension point\nCriar Prontuário\nEditar Prontuário\nVisualizar Prontuário\nEncerrar Prontuário\nAcessar fila de atendimento) ::<<extend>>
+ 
+
+(Cadastro\nUso de medicações\nExames e Procecimentos)<..(Criar Prontuário) ::<<include>>
+
+
+
+(Registro Hipótese Diagnóstica)<..-up(Criar Prontuário) ::<<include>>
+
+(Registro Plano Terapêutico)<..-left(Criar Prontuário) ::<<include>>
+
+(Cadastro\nAnamnese)<..-down(Criar Prontuário) ::<<include>>
+
+(Registro Queixa Principal)<..(Cadastro\nAnamnese) ::<<include>>
+
+(Registro História da Doença Atual)<..(Cadastro\nAnamnese) ::<<include>>
+
+(Registro Sinais Vitais)<..(Cadastro\nAnamnese) ::<<include>>
+
+(Registro Exame Físico)<..-left(Cadastro\nAnamnese) ::<<include>>
+
+(Registro Estado Geral)--|>(Registro Exame Físico)
+
+(Registro Nível de consciência)--|>(Registro Exame Físico)
+
+(Registro Escala de Glasgow)--|>(Registro Exame Físico)
+
+(Registro Orientação no tempo e espaço) --|>(Registro Exame Físico)
+
+(Registro Classificação Linguagem) --|>(Registro Exame Físico)
+
+(Registro Nível de Atividade) -up--|> (Registro Exame Físico)
+
+(Registro Decúbito preferencial) -up--|>(Registro Exame Físico)
+
+(Registro Fácies) -up--|>(Registro Exame Físico)
+
+(Registro Pele fâneros e mucosas) -up--|>(Registro Exame Físico)
+
+(Registro de Estado de Hidratação) -up--|>(Registro Exame Físico)
+
+(Registro de Nutrição) -left--|>(Registro Exame Físico)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(Editar Prontuário)-up..>(Acesso Menu\n--\nextension point\nCriar Prontuário\nEditar Prontuário\nVisualizar Prontuário\nEncerrar Prontuário\nAcessar fila de atendimento) ::<<extend>>
+
+(Editar Queixa Principal) -up--|> (Editar Prontuário)
+
+(Editar História da Doença Atual) -up--|>(Editar Prontuário)
+
+(Editar Sinais Vitais) -up--|> (Editar Prontuário)
+
+(Editar Medicações, Exames e Procedimentos) -up--|>(Editar Prontuário)
+
+(Editar Exame Físico) -up--|>(Editar Prontuário)
+
+(Editar Hipótese Diagnóstica) -up--|>(Editar Prontuário)
+
+(Editar Plano Terapêutico) -up--|>(Editar Prontuário)
+
+
+
+(Modificar fila)..>(Acessar fila de atendimento\n--\nextension point\nModificar fila) ::<<extend>>
+
+(Visualizar Prontuário)-right..>(Acesso Menu\n--\nextension point\nCriar Prontuário\nEditar Prontuário\nVisualizar Prontuário\nEncerrar Prontuário\nAcessar fila de atendimento) :: <<extend>>
+
+(Acessar fila de atendimento\n--\nextension point\nModificar fila) ..>(Acesso Menu\n--\nextension point\nCriar Prontuário\nEditar Prontuário\nVisualizar Prontuário\nEncerrar Prontuário\nAcessar fila de atendimento) :: <<extend>>
+
+
+(Encerrar Prontuário)-up..>(Acesso Menu\n--\nextension point\nCriar Prontuário\nEditar Prontuário\nVisualizar Prontuário\nEncerrar Prontuário\nAcessar fila de atendimento) ::<<extend>>
+
+
+
+
+@enduml
