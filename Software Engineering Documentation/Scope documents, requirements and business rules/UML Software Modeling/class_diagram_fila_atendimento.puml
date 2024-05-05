@@ -1,0 +1,85 @@
+@startuml Diagrama de Classe Busca Prontuário 
+
+
+class "Login"
+{
+    +char[16] CPF_login;
+
+    +string senha_login;
+
+    +void entry_login();
+
+}
+
+class "Autenticacao"
+{
+    -boolean autenticacao();
+
+}
+
+entity "Usuario"
+{
+    +char[16] CPF;
+    
+    +string senha_cadastro;
+
+    -void cadastro_usuario();
+    
+    -void excluir_usuario();
+
+    -void editar_usuario();
+    
+    +void login_usuario(); 
+}
+
+interface "Menu"
+{
+    +string label_cadastro_paciente;
+
+    +string label_evolução_prontuario;
+    
+    +string label_finalizar_prontuario;
+    
+    +string label_busca_prontuario;
+    
+    +string label_fila_de_atendimento;
+
+    +void cadastro_paciente();
+    
+    +void evolução_prontuario();
+    
+    +void finalizar_prontuario();
+    
+    +void busca_prontuario();
+    
+    +void fila_atendimento();
+    
+    -boolean autenticacao();
+
+}
+
+
+class Fila_atendimento_prontuario
+{
+    +List <fila>;
+    +void fila_atendimento();
+    -void queue_atendimento();
+} 
+
+
+
+
+
+
+
+Login -down..>Autenticacao
+Autenticacao -right..>Usuario
+Autenticacao -down..|>Menu
+Menu -right..|>Fila_atendimento_prontuario
+
+
+
+
+
+
+@enduml 

@@ -169,6 +169,7 @@ entity "Cadastro_Paciente_Classificacao_Risco"
 {
     +string entry_risco_paciente;
     +void cadastro_paciente();
+    -void queue_atendimento();
 }
 
 class "Termo_consentimento"
