@@ -1,0 +1,28 @@
+@startuml Diagrama caso de uso setor administrativo
+
+:Setor administrativo: as User
+
+User-->(Login)
+
+
+
+
+(Login)..>(Autenticação)
+
+(Autenticação)..>(Acesso Menu\n--\nextension points\nVisualizar\nCriar\nEditar)::<<include>>
+
+(Acesso Menu\n--\nextension points\nVisualizar\nCriar\nEditar) -down..>(Criar Prontuário) ::<<extend>>
+
+
+
+(Criar Prontuário)..>(Cadastro Paciente\nIdentificação) ::<<include>>
+
+(Acesso Menu\n--\nextension points\nVisualizar\nCriar\nEditar) -right..>(Editar Prontuário) ::<<extend>>
+
+(Editar Prontuário)-right..>(Editar\nDados de Identificação) :: <<include>>
+
+(Acesso Menu\n--\nextension points\nVisualizar\nCriar\nEditar) -left..>(Visualizar\nFila de atendimentos) ::<<extend>>
+
+
+
+@endluml
