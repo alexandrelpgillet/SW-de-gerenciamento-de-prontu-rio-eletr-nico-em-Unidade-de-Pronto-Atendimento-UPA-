@@ -1,0 +1,19 @@
+@startuml Diagrama de Caso de Uso Administrador
+
+
+skinparam actorStyle awesome
+
+"Main Admin" as Admin
+
+Admin -right-- (Realizar\nLogin)
+
+(Realizar\nLogin)-right..>(Autenticação) : <<include>>
+
+(Autenticação)..>(Cadastrar Profissional) : <<include>>
+(Autenticação)..>(Excluir Profissional) : <<include>>
+(Autenticação)..>(Editar Profissional) : <<include>>
+(Autenticação)..>(Visualizar Profissional) : <<include>>
+(Autenticação)..>(Controle Banco de dados) : <<include>>
+
+
+@endluml
