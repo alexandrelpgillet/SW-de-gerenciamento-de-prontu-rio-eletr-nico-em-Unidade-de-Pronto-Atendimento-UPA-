@@ -1,4 +1,4 @@
-@startuml Diagrama caso de uso enfermeiros
+@startuml Diagrama caso de uso Médicos
 
 
 "Médicos" as User
